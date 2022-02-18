@@ -75,8 +75,11 @@ movies = [
 "category": "Romance" 
 } 
 ] 
-
-def check(mov):    
-    if mov["imdb"] > 5.5: 
-        return True 
-    return False      
+def aver_categ(name_of_cat): 
+    cnt = 0 
+    res = 0 
+    for i in movies: 
+        if i['category'] == name_of_cat: 
+            res += 1 
+            cnt += i['imdb'] 
+    return cnt/res

@@ -76,7 +76,10 @@ movies = [
 } 
 ] 
 
-def check(mov):    
-    if mov["imdb"] > 5.5: 
-        return True 
-    return False      
+
+def above_5_poi_5(): 
+    arr = [] 
+    for m in movies: 
+        if m["imdb"] > 5.5: 
+            arr.append(m) 
+    return arr 

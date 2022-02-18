@@ -75,8 +75,8 @@ movies = [
 "category": "Romance" 
 } 
 ] 
-
-def check(mov):    
-    if mov["imdb"] > 5.5: 
-        return True 
-    return False      
+def counter(movies): 
+    cnt = 0 
+    for m in movies: 
+        cnt += m["imdb"] 
+    return cnt / len(movies)     

@@ -76,7 +76,9 @@ movies = [
 } 
 ] 
 
-def check(mov):    
-    if mov["imdb"] > 5.5: 
-        return True 
-    return False      
+def categ(name_of_cat): 
+    arr = [] 
+    for i in movies: 
+        if i['category'] == name_of_cat: 
+            arr.append(i) 
+    return arr 
