@@ -3,5 +3,5 @@ s = input()
 def perm(): 
     l = permutations(s) 
     for i in list(l):       
-       print(i) 
+       print(*i,sep='') 
 perm()
