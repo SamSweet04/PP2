@@ -76,9 +76,10 @@ movies = [
 } 
 ] 
 
-def categ(name_of_cat): 
+def category(name): 
     arr = [] 
     for i in movies: 
-        if i['category'] == name_of_cat: 
-            arr.append(i) 
-    return arr 
+        if i['category'] == name: 
+            arr.append(i["name"]) 
+    print(arr)
+category(input())

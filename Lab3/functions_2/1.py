@@ -75,8 +75,14 @@ movies = [
 "category": "Romance" 
 } 
 ] 
-
-def check(mov):    
-    if mov["imdb"] > 5.5: 
-        return True 
-    return False      
+def score():
+    s = input() 
+    for i in movies:
+        if i["name"] == s: 
+            if i['imdb'] > 5.5:
+                print('True')
+            break
+        else: 
+             print('False') 
+             break 
+score()

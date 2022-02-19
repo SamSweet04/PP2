@@ -1,3 +1,6 @@
+from textwrap import indent
+
+
 movies = [ 
 { 
 "name": "Usual Suspects",  
@@ -75,11 +78,10 @@ movies = [
 "category": "Romance" 
 } 
 ] 
-
-
 def above_5_poi_5(): 
     arr = [] 
     for m in movies: 
         if m["imdb"] > 5.5: 
-            arr.append(m) 
-    return arr 
+            arr.append(m["name"]) 
+    print(arr)
+above_5_poi_5()

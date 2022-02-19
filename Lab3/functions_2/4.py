@@ -77,6 +77,7 @@ movies = [
 ] 
 def counter(movies): 
     cnt = 0 
-    for m in movies: 
-        cnt += m["imdb"] 
-    return cnt / len(movies)     
+    for i in movies: 
+        cnt += i["imdb"] 
+    print(cnt / len(movies))
+counter(movies)

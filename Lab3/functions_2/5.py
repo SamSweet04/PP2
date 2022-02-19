@@ -75,11 +75,12 @@ movies = [
 "category": "Romance" 
 } 
 ] 
-def aver_categ(name_of_cat): 
-    cnt = 0 
+def category(name): 
+    cnt = 0
     res = 0 
     for i in movies: 
-        if i['category'] == name_of_cat: 
+        if i['category'] == name: 
             res += 1 
             cnt += i['imdb'] 
-    return cnt/res
+    print(cnt/res)
+category(input())
