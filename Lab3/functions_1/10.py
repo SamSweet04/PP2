@@ -1,9 +1,8 @@
-n = input()
+n = input().split()
 def unique():
     l = []
     for i in n:
         if i not in l:
             l.append(i)
-    print(l, end='')
-
+    print(*l, sep=' ')
 unique()
