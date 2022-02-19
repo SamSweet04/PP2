@@ -1,4 +1,4 @@
-n = input().split()
+n = input().split(',')
 def spy_game():
     s = ''
     for i  in n:
