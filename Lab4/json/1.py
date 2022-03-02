@@ -1,14 +1,13 @@
 import json
 
 f = open("file.json")
-memory = json.load(f)
+d = json.load(f)
 
-print('Interface Status')
-print("="* 90)
-print('DN' + " "*60 + 'Description' + " "*10 + 'Speed' + " "*6 + 'MTU') 
-print("-"*61 + " " + "-" *20 + " "*2 + "-"*6 + " "*3 + "-"*6)
+print('Interface Status','='* 90,sep='\n')
+print('DN' , ' '*60 , 'Description' , ' '*6, 'Speed' , ' '*4 , 'MTU') 
+print('-'*61 , ' ' , "-" *15 , " "*2 , "-"*6 , " "*3 , "-"*6)
 y=0
-for i in memory['imdata']:
+for i in d['imdata']:
     y+=1
     out1=i["l1PhysIf"]["attributes"]["dn"]
     out11=i["l1PhysIf"]["attributes"]["fecMode"]
@@ -17,3 +16,4 @@ for i in memory['imdata']:
     print(out1,' '*39, out11,' ' * 2,out111)
     if y == 3:
         break
+
