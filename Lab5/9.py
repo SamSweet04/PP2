@@ -1,2 +1,3 @@
 import re
-print(re.sub(r"(\w)([A-Z])", r"\1 \2", input()))
+txt = input()
+print(re.findall("[A-Z][^A-Z]*",txt))
