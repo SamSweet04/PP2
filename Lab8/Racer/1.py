@@ -138,13 +138,13 @@ while True:
     for coin in coins:
         for pl in player:
             if pygame.sprite.collide_rect(pl, coin):
-                COIN_SCORE += random.randint(1,3)
+                COIN_SCORE += 1
                 COIN_PICKED = True
                 pygame.mixer.Sound('sounds\coin.wav').play()
                 coin.remove()
     # когда кол.монет достигает или превышает 10,скорость становиться равен 7
-    if COIN_SCORE >= 10:
-        SPEED = 7
+    # if COIN_SCORE >= 10:
+    #     SPEED = 7
 
     #To be run if collision occurs between Player and Enemy
     if pygame.sprite.spritecollideany(P1, enemies):
