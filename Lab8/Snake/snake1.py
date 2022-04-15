@@ -1,7 +1,6 @@
 #Imports
 import pygame
 from random import randrange
-import random
 import time
 
 #Initialzing
@@ -100,7 +99,7 @@ class Snake:
     #A function to check if snake and food cross
     def collide_food(self, f:Food):
         if self.body[0][0] == f.x and self.body[0][1] == f.y:
-            self.score += random.randint(1, 3)
+            self.score += 1
             self.body.append([500, 500])
     #A function to check if snake's head and body cross
     def collide_self(self):
@@ -128,19 +127,19 @@ while running:
     #White screen
     screen.fill(WHITE)
     #Change of levels and speed
-    if s.score >= 3:
+    if s.score == 3:
         level = 1
         FPS = 5
-    if s.score >= 6:
+    if s.score == 6:
         level = 2
         FPS = 5
-    if s.score >= 9:
+    if s.score == 9:
         level = 3
         FPS = 6
-    if s.score >= 12:
+    if s.score == 12:
         level = 4
         FPS = 7
-    if s.score >= 15:
+    if s.score == 15:
         level = 5
         FPS = 7
     #Actions to get structure of walls
@@ -180,3 +179,4 @@ while running:
     screen.blit(text2, (5, 30))
     pygame.display.flip()
 pygame.quit()
+
