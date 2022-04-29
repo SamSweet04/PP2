@@ -6,16 +6,17 @@ conn  = psycopg2.connect(
      password = 'Haker15987'
 )
 cursor = conn.cursor()
-cursor.execute('''
-     CREATE TABLE phonebook(
-          username VARCHAR(21),
-          number VARCHAR(12)
-     );
+
+username = 'Alina'
+phone = '8662544'
+
+
+sql = '''
+     INSERT INTO phonebook
+     VALUES(%s, %s);
      '''
-)
 
-
-
+cursor.execute(sql, (username, phone))
 cursor.close()
 
 conn.commit()

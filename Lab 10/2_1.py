@@ -3,18 +3,18 @@ conn  = psycopg2.connect(
      host = 'localhost',
      database = 'postgres',
      user = 'postgres',
-     password = 'Haker15987'
+     password = '9792amina'
 )
 cursor = conn.cursor()
 cursor.execute('''
-     CREATE TABLE phonebook(
+     CREATE TABLE snake(
           username VARCHAR(21),
-          number VARCHAR(12)
+          user_score VARCHAR(12),
+          highscore VARCHAR(12),
+          level VARCHAR(12)
      );
      '''
 )
-
-
 
 cursor.close()
 
