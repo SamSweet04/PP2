@@ -3,7 +3,7 @@ conn  = psycopg2.connect(
      host = 'localhost',
      database = 'postgres',
      user = 'postgres',
-     password = '9792amina'
+     password = 'Haker15987'
 )
 cursor = conn.cursor()
 cursor.execute('''
