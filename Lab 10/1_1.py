@@ -14,8 +14,6 @@ cursor.execute('''
      '''
 )
 
-
-
 cursor.close()
 
 conn.commit()

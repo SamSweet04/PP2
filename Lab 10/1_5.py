@@ -9,15 +9,15 @@ conn = psycopg2.connect(
 
 cursor = conn.cursor()
 
-username = input()
-
+username = input("name:")
+list = []
+for i in username.split(','):
+    list.append(i)
 sql = '''
-     DELETE FROM phonebook
-     WHERE username = %s;
+     DELETE FROM phonebook WHERE username = %s;
      '''
-
-cursor.execute(sql, (username))
+for i in list:
+    cursor.execute(sql, (i,))
 conn.commit()
-
 cursor.close()
 conn.close()
