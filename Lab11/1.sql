@@ -1,3 +1,15 @@
+import psycopg2
+
+conn = psycopg2.connect(
+    host = 'localhost',
+    database = 'postgres',
+    user = 'postgres',
+    password = 'Haker15987'
+)
+
+cur = conn.cursor()
+
+'''
 create or replace function searcher()
     returns table
             (
@@ -13,26 +25,12 @@ begin
 
 end
 $$ language plpgsql;
+'''
 
-select *
-from searcher();
+cur.execute("select searcher(); ")
+result = cur.fetchall()
+print(result)
 
-
-create or replace function search_num()
-    returns table
-            (
-                username varchar(12),
-                number varchar(12)
-            )
-as
-$$
-begin
-    return query
-        select phonebook.username,phonebook.number
-        from phonebook where phonebook.number like '8707%';
-
-end
-$$ language plpgsql;
-
-select *
-from search_num();
+cur.close()
+conn.commit()
+conn.close()
