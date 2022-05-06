@@ -1,44 +1,30 @@
-create or replace function get_user(_username varchar)
-    returns record
-as
-$$
-declare
-    phone record;
-begin
-    select * into phone from phonebook where phonebook.username = $1;
-    return phone;
-end;
-$$ language plpgsql;
-----------------------------------------------------------------------
+import psycopg2
 
-create or replace procedure add_user(username varchar,number varchar)
-as
-$$
-begin
-    insert into phonebook(username, number) values ($1, $2);
-end;
-$$
-    LANGUAGE plpgsql;
+n_name = input('Enter name you want insert...\n')
+n_number = input('Enter phone you want insert...\n')
 
+conn = psycopg2.connect(
+    host = 'localhost',
+    database = 'postgres',
+    user = 'postgres',
+    password = 'Haker15987'
+)
+cur = conn.cursor()
 
-call add_user('Amina', '8707666643');
-select get_user('Amina');
-
----------------------------------------------------------------------
-
-DROP PROCEDURE update_user(username varchar, number varchar);
-create or replace procedure update_user(username varchar, number varchar)
-as
-$$
-begin
-    update phonebook
-    set number = $2
-    where phonebook.username = $1;
-end;
-$$
-    LANGUAGE plpgsql;
-
-call update_user('Amina', '87076667809');
-select get_user('Amina')
-
----------------------------------------------------------------
+'''
+create or replace procedure inserting(n_name varchar, n_number varchar)
+AS $$  
+BEGIN 
+    IF EXISTS (select * from phonebook where username = n_name) THEN 
+        UPDATE phonebook SET number = n_number where username = n_name;
+    ELSE
+        INSERT INTO phonebook Values (n_name, n_number);
+END IF;
+END; 
+$$ 
+LANGUAGE plpgsql 
+'''
+cur.execute('CALL inserting(%s, %s)', (n_name, n_number))
+cur.close()
+conn.commit()
+conn.close()
